@@ -26,6 +26,14 @@ def main():
     search.add_argument("--tables", nargs="*")
     search.add_argument("--group-by", default="db")
 
+    # Hash lookup
+    hash_cmd = subparsers.add_parser("hash")
+    hash_cmd.add_argument("terms", nargs="+")
+    hash_cmd.add_argument("--types", required=True, nargs="+")
+    hash_cmd.add_argument("--wildcard", action="store_true")
+    hash_cmd.add_argument("--tables", nargs="*")
+    hash_cmd.add_argument("--group-by", default="db")
+
     # IP WHOIS
     ipwhois = subparsers.add_parser("ipwhois")
     ipwhois.add_argument("ips", nargs="+")
@@ -40,6 +48,13 @@ def main():
         
         if args.command == "search":
             result = api.search(
+                args.terms, args.types,
+                wildcard=args.wildcard,
+                tables=args.tables,
+                group_by=args.group_by
+            )
+        elif args.command == "hash":
+            result = api.hash_lookup(
                 args.terms, args.types,
                 wildcard=args.wildcard,
                 tables=args.tables,

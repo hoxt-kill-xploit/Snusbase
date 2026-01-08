@@ -3,6 +3,9 @@
 # Basic search by email
 python3 snusbase_cli.py search "user@example.com" --types email
 
+# Search for 'teste' term
+python3 snusbase_cli.py search "teste" --types username email
+
 # Multiple terms and multiple types
 python3 snusbase_cli.py search "user@example.com" "another@example.net" --types email username
 

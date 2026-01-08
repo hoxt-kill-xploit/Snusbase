@@ -83,5 +83,4 @@ class SnusbaseAPI:
             for term, err in results["errors"].items():
                 lines.append(f"  {term}: {err}")
 
-        return "
-".join(lines)
+        return "\n".join(lines)

@@ -38,6 +38,20 @@ All commands follow this format:
 python3 snusbase_cli.py <command> [options]
 ~~~
 
+### Quick Search Example
+
+To perform a quick search for a specific term (e.g., "teste"):
+
+~~~bash
+python3 search_teste.py
+~~~
+
+Or use the CLI directly:
+
+~~~bash
+python3 snusbase_cli.py search "teste" --types username email
+~~~
+
 ---
 
 ## Examples
